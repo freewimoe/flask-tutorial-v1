@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Flask Tutorial V1{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Einfaches CSS für bessere Lesbarkeit -->
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1><a href="{{ url_for('home') }}">📚 Flask Tutorial V1</a></h1>
+            <div class="nav-links">
+                {% if current_user %}
+                    <span>Hallo, {{ current_user.username }}!</span>
+                    <a href="{{ url_for('new_post') }}">Neuer Post</a>
+                    <a href="{{ url_for('logout') }}">Abmelden</a>
+                {% else %}
+                    <a href="{{ url_for('register') }}">Registrieren</a>
+                    <a href="{{ url_for('login') }}">Anmelden</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <!-- Flash Messages (Nachrichten) -->
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Hauptinhalt -->
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>🎓 Flask Tutorial V1 - Einfache Version für Schüler</p>
+        <p>Erstellt mit Flask {{ config.FLASK_VERSION or '2.3.3' }}</p>
+    </footer>
+</body>
+</html>

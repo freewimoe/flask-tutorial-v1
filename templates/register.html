@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Registrierung - Flask Tutorial V1{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>📝 Registrierung</h2>
+    <p>Erstelle einen neuen Account, um Posts zu schreiben!</p>
+    
+    <form method="POST" class="form">
+        {{ form.hidden_tag() }}
+        
+        <div class="form-group">
+            {{ form.username.label(class="form-label") }}
+            {{ form.username(class="form-input") }}
+            {% for error in form.username.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        
+        <div class="form-group">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-input") }}
+            {% for error in form.email.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        
+        <div class="form-group">
+            {{ form.password.label(class="form-label") }}
+            {{ form.password(class="form-input") }}
+            {% for error in form.password.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+            <small class="help-text">Mindestens 6 Zeichen</small>
+        </div>
+        
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+    
+    <div class="form-footer">
+        <p>Schon registriert? <a href="{{ url_for('login') }}">Hier anmelden</a></p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}{{ user.username }} - Flask Tutorial V1{% endblock %}
+
+{% block content %}
+<div class="profile-header">
+    <h2>👤 Profil: {{ user.username }}</h2>
+    <div class="profile-info">
+        <p>📧 E-Mail: {{ user.email }}</p>
+        <p>📝 Anzahl Posts: {{ posts|length }}</p>
+    </div>
+</div>
+
+<div class="posts-section">
+    <h3>Posts von {{ user.username }}</h3>
+    
+    {% if posts %}
+        {% for post in posts %}
+            <article class="post-card">
+                <h4>{{ post.title }}</h4>
+                <div class="post-meta">
+                    <span>📅 {{ post.date_posted.strftime('%d.%m.%Y um %H:%M') }}</span>
+                </div>
+                <div class="post-content">
+                    {{ post.content }}
+                </div>
+            </article>
+        {% endfor %}
+    {% else %}
+        <div class="no-posts">
+            <p>Dieser Benutzer hat noch keine Posts geschrieben.</p>
+        </div>
+    {% endif %}
+</div>
+
+<div class="back-link">
+    <a href="{{ url_for('home') }}" class="btn btn-secondary">← Zurück zur Startseite</a>
+</div>
+{% endblock %}
