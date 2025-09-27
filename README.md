@@ -133,6 +133,13 @@ flask-tutorial-v1/
 | JavaScript | Minimal | Erweiterte Interaktionen |
 | Datenbankfunktionen | Grundlegend | Erweiterte Abfragen |
 
+### 📊 **Detaillierter Vergleich**
+👉 **[Vollständiger Vergleichsguide](https://github.com/freewimoe/flask-tutorial-comparison)**
+
+### 🔗 **Verwandte Repositories**
+- 🔵 **[Flask Tutorial V2 (Erweitert)](https://github.com/freewimoe/flask-tutorial-v2)** - Die professionelle Version
+- 📚 **[Vergleichsguide](https://github.com/freewimoe/flask-tutorial-comparison)** - Detaillierte Gegenüberstellung
+
 ## 🐛 Häufige Probleme
 
 ### Virtual Environment aktivieren vergessen
