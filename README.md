@@ -65,6 +65,25 @@ python app.py
 
 Die Anwendung ist dann unter http://127.0.0.1:5000 erreichbar.
 
+## 🚀 **Live-Demo deployen**
+
+Diese App ist **deployment-ready** für [Render.com](https://render.com) (kostenlos!):
+
+### ⚡ **One-Click Deployment:**
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com)
+
+### 📋 **Oder manuell deployen:**
+1. Render Account erstellen (GitHub-Login)
+2. "New Web Service" → Dieses Repository auswählen
+3. Build Command: `pip install -r requirements.txt`
+4. Start Command: `gunicorn app:app`
+5. Deploy klicken!
+
+**📖 Detaillierte Anleitung:** [DEPLOYMENT.md](DEPLOYMENT.md)
+
+### 🌐 **Live-Demo:**
+Nach dem Deployment verfügbar unter: `https://dein-app-name.onrender.com`
+
 ## 📁 Projektstruktur
 
 ```
