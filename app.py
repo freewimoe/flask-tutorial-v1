@@ -209,5 +209,12 @@ if __name__ == '__main__':
     print("📝 Öffne http://127.0.0.1:5000 in deinem Browser")
     print("📚 Dies ist die einfache Version für Schüler")
     
-    # App im Debug-Modus starten
-    app.run(debug=True)
+    # Production vs Development
+    import os
+    if os.environ.get('RENDER'):
+        # Production auf Render
+        port = int(os.environ.get('PORT', 5000))
+        app.run(host='0.0.0.0', port=port, debug=False)
+    else:
+        # Lokale Entwicklung
+        app.run(debug=True)
